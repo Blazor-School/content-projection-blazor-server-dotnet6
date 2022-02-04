@@ -1,0 +1,21 @@
+﻿@using ContentProjection.Models
+
+<div class="border border-3 border-primary p-3">
+    <h3>GenericProjectionParent</h3>
+    <GenericProjectionChild InputData="InputFromParent" Context="OutputFromChild">
+        <span>Data: @OutputFromChild.Data</span>
+    </GenericProjectionChild>
+    <button class="btn btn-primary mt-3" type="button" @onclick="AlternateData">Update Data</button>
+</div>
+
+@code {
+    public ExampleClass InputFromParent { get; set; } = new()
+    {
+        Data = "Data from parent"
+    };
+
+    public void AlternateData()
+    {
+        InputFromParent.Data = "Updated from parent";
+    }
+}
