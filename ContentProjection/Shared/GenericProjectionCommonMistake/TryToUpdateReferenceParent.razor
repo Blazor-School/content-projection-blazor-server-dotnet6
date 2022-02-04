@@ -3,10 +3,10 @@
 <div class="border border-3 border-primary p-3">
     <h3>GenericProjectionParent</h3>
     <span>Data: @InputFromParent.Data</span>
-    <GenericProjectionChild InputData="InputFromParent" Context="OutputFromChild">
+    <TryToUpdateReferenceChild InputData="InputFromParent" Context="OutputFromChild">
         <span>Data: @OutputFromChild.Data</span>
-    </GenericProjectionChild>
-    <button class="btn btn-primary mt-3" type="button" @onclick="AlternateData">Update Data</button>
+    </TryToUpdateReferenceChild>
+    <button class="btn btn-primary mt-3" type="button" @onclick="StateHasChanged">Update UI</button>
 </div>
 
 @code {
@@ -14,9 +14,4 @@
     {
         Data = "Data from parent"
     };
-
-    public void AlternateData()
-    {
-        InputFromParent.Data = "Updated from parent";
-    }
 }

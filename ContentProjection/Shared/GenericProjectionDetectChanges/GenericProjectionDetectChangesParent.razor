@@ -1,11 +1,11 @@
 ﻿@using ContentProjection.Models
 
 <div class="border border-3 border-primary p-3">
-    <h3>GenericProjectionParent</h3>
+    <h3>GenericProjectionDetectChangesParent</h3>
     <span>Data: @InputFromParent.Data</span>
-    <GenericProjectionChild InputData="InputFromParent" Context="OutputFromChild">
+    <GenericProjectionDetectChangesChild InputData="InputFromParent" InputDataChanged="StateHasChanged" Context="OutputFromChild">
         <span>Data: @OutputFromChild.Data</span>
-    </GenericProjectionChild>
+    </GenericProjectionDetectChangesChild>
     <button class="btn btn-primary mt-3" type="button" @onclick="AlternateData">Update Data</button>
 </div>
 

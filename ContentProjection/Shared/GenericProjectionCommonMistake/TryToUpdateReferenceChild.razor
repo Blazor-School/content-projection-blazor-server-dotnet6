@@ -5,7 +5,8 @@
     <div class="border border-3 border-warning p-3">
         @ChildContent?.Invoke(InputData)
     </div>
-    <button class="btn btn-success mt-3" type="button" @onclick="AlternateData">Update Data</button>
+    <button class="btn btn-outline-success mt-3" type="button" @onclick="Correct">Correct</button>
+    <button class="btn btn-outline-danger mt-3" type="button" @onclick="Mistake">Mistake</button>
 </div>
 
 @code {
@@ -15,8 +16,15 @@
     [Parameter]
     public ExampleClass InputData { get; set; } = new();
 
-    public void AlternateData()
+    public void Correct()
     {
-        InputData.Data = "Updated from child";
+        InputData.Data = "Value updated.";
+    }
+    public void Mistake()
+    {
+        InputData = new()
+        {
+            Data = "Reference updated."
+        };
     }
 }
