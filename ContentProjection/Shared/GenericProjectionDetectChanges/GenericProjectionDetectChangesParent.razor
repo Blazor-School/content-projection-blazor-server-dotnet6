@@ -6,7 +6,6 @@
     <GenericProjectionDetectChangesChild InputData="InputFromParent" InputDataChanged="StateHasChanged" Context="OutputFromChild">
         <span>Data: @OutputFromChild.Data</span>
     </GenericProjectionDetectChangesChild>
-    <button class="btn btn-primary mt-3" type="button" @onclick="AlternateData">Update Data</button>
 </div>
 
 @code {
@@ -14,9 +13,4 @@
     {
         Data = "Data from parent"
     };
-
-    public void AlternateData()
-    {
-        InputFromParent.Data = "Updated from parent";
-    }
 }

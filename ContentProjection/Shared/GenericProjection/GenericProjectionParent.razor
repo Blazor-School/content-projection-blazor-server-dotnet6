@@ -2,21 +2,25 @@
 
 <div class="border border-3 border-primary p-3">
     <h3>GenericProjectionParent</h3>
-    <span>Data: @InputFromParent.Data</span>
-    <GenericProjectionChild InputData="InputFromParent" Context="OutputFromChild">
-        <span>Data: @OutputFromChild.Data</span>
+    <GenericProjectionChild InputData="Animals" Context="OutputFromProjection">
+        <DogTemplate>
+            <div>My name is @OutputFromProjection.Name, I am a dog.</div>
+        </DogTemplate>
+        <CatTemplate>
+            <div>My name is @OutputFromProjection.Name, I am a cat.</div>
+        </CatTemplate>
+        <BirdTemplate>
+            <div>My name is @OutputFromProjection.Name, I am a bird.</div>
+        </BirdTemplate>
     </GenericProjectionChild>
-    <button class="btn btn-primary mt-3" type="button" @onclick="AlternateData">Update Data</button>
 </div>
 
 @code {
-    public ExampleClass InputFromParent { get; set; } = new()
+    public List<IAnimal> Animals { get; set; } = new()
     {
-        Data = "Data from parent"
+        new Dog() { Name = "Doggy" },
+        new Cat() { Name = "Pussy" },
+        new Bird() { Name = "Birb" },
+        new Cat() { Name = "Kitty" },
     };
-
-    public void AlternateData()
-    {
-        InputFromParent.Data = "Updated from parent";
-    }
 }
